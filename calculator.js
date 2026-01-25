@@ -15,9 +15,18 @@ const divide = (a,b) => {
     return a / b;
 }
 
-const operators = [add,subtract,multiply,divide];
+console.log(add(2,4));
+console.log(subtract(2,4));
+console.log(multiply(2,4));
+console.log(divide(2,4));
+//Variables
+// function operate(num1,operator,num2){
+// let num1 = placeholder //needs to take a number input
+// let operator = placeholder //will call one of hte functions above
+// let num2 = placeholder //needs to take a number input
+// }
 
-const input = [num1,operator,num2];
+//const operators = [add,subtract,multiply,divide];
 
 //Defining the consts
 const one = document.getElementById('one').addEventListener("click",inputDisplay);
@@ -56,7 +65,7 @@ console.log("+");
 const minus = document.getElementById('sub').addEventListener("click",inputDisplay);
 console.log("-");
 
-const times = document.getElementById('mulitply').addEventListener("click",inputDisplay);
+const times = document.getElementById('multiply').addEventListener("click",inputDisplay);
 console.log("*");
 
 const division = document.getElementById('divide').addEventListener("click",inputDisplay);

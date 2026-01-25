@@ -24,6 +24,7 @@ div[id^="row"],#operators {
     justify-content: center;
     border:1px solid;
     width: 132px;
+    align-items:center;
 }
 
 div[id^="row"] *,#operators * {
@@ -32,4 +33,5 @@ div[id^="row"] *,#operators * {
     height:25px;
     width: 25px;
     justify-content: center;
+    align-items: center;
 }
