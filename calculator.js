@@ -15,16 +15,21 @@ const divide = (a,b) => {
     return a / b;
 }
 
-console.log(add(2,4));
-console.log(subtract(2,4));
-console.log(multiply(2,4));
-console.log(divide(2,4));
 //Variables
-// function operate(num1,operator,num2){
-// let num1 = placeholder //needs to take a number input
-// let operator = placeholder //will call one of hte functions above
-// let num2 = placeholder //needs to take a number input
-// }
+let num1 = "" //needs to take a number input
+let operator = [add, subtract, multiply, divide] //will call one of the functions above
+let num2 = "" //needs to take a number input
+
+function operate(num1,operator,num2) {
+    if (operator = plus) {
+        add(a,b);
+        return console.log(add(a,b));
+    }
+    else if (operator = minus) {
+        subtract(num1,num2);
+        return console.log(subtract(a,b));
+    }
+};
 
 //const operators = [add,subtract,multiply,divide];
 
