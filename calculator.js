@@ -34,47 +34,47 @@ function operate(num1,operator,num2) {
 //const operators = [add,subtract,multiply,divide];
 
 //Defining the consts
-const one = document.getElementById('one').addEventListener("click",inputDisplay);
-console.log(one);
+// const one = document.getElementById('one').addEventListener("click",inputDisplay);
+// console.log(one);
 
-const two = document.getElementById('two').addEventListener("click",inputDisplay);
-console.log(two);
+// const two = document.getElementById('two').addEventListener("click",inputDisplay);
+// console.log(two);
 
-const three = document.getElementById('three').addEventListener("click",inputDisplay);
-console.log(three);
+// const three = document.getElementById('three').addEventListener("click",inputDisplay);
+// console.log(three);
 
-const four = document.getElementById('four').addEventListener("click",inputDisplay);
-console.log(four);
+// const four = document.getElementById('four').addEventListener("click",inputDisplay);
+// console.log(four);
 
-const five = document.getElementById('five').addEventListener("click",inputDisplay);
-console.log(five);
+// const five = document.getElementById('five').addEventListener("click",inputDisplay);
+// console.log(five);
 
-const six = document.getElementById('six').addEventListener("click",inputDisplay);
-console.log(six);
+// const six = document.getElementById('six').addEventListener("click",inputDisplay);
+// console.log(six);
 
-const seven = document.getElementById('seven').addEventListener("click",inputDisplay);
-console.log(seven);
+// const seven = document.getElementById('seven').addEventListener("click",inputDisplay);
+// console.log(seven);
 
-const eight = document.getElementById('eight').addEventListener("click",inputDisplay);
-console.log(eight);
+// const eight = document.getElementById('eight').addEventListener("click",inputDisplay);
+// console.log(eight);
 
-const nine = document.getElementById('nine').addEventListener("click",inputDisplay);
-console.log(nine);
+// const nine = document.getElementById('nine').addEventListener("click",inputDisplay);
+// console.log(nine);
 
-const zero = document.getElementById('zero').addEventListener("click",inputDisplay);
-console.log(zero);
+// const zero = document.getElementById('zero').addEventListener("click",inputDisplay);
+// console.log(zero);
 
-const plus = document.getElementById('add').addEventListener("click",inputDisplay);
-console.log("+");
+// const plus = document.getElementById('add').addEventListener("click",inputDisplay);
+// console.log("+");
 
-const minus = document.getElementById('sub').addEventListener("click",inputDisplay);
-console.log("-");
+// const minus = document.getElementById('sub').addEventListener("click",inputDisplay);
+// console.log("-");
 
-const times = document.getElementById('multiply').addEventListener("click",inputDisplay);
-console.log("*");
+// const times = document.getElementById('multiply').addEventListener("click",inputDisplay);
+// console.log("*");
 
-const division = document.getElementById('divide').addEventListener("click",inputDisplay);
-console.log("/");
+// const division = document.getElementById('divide').addEventListener("click",inputDisplay);
+// console.log("/");
 
 // function inputDisplay () {
 //     const display = document.getElementById('input');
@@ -87,3 +87,14 @@ console.log("/");
 //create another const that can hold values from input
 //inputdisplay, does this need to consider the order of number and operator
 //reduce is not needed here
+
+const container = document.getElementById("container");
+
+const resultDisplay = document.getElementById("display");
+
+container.addEventListener("click", (event) => {
+    if (event.target.matches('.number')) {
+        const clickedValue = event.target.getAttribute("data-seven");
+    resultDisplay.textContent = clickedValue;
+    }
+});
