@@ -96,5 +96,16 @@ container.addEventListener("click", (event) => {
     if (event.target.matches('.number')) {
         const clickedValue = event.target.getAttribute("data-digit");
         resultDisplay.textContent += clickedValue;
+        console.log(clickedValue);
     }
+    else if (event.target.matches('.operator')) {
+        const clickedValue = event.target.getAttribute("data-sign");
+        resultDisplay.textContent += clickedValue;
+        console.log(clickedValue);
+    }    
+    else if (event.target.matches('#equal')) {
+        resultDisplay.innerHTML= "";
+        console.log("Clear bitch");
+    }    
 });
+
