@@ -90,11 +90,11 @@ function operate(num1,operator,num2) {
 
 const container = document.getElementById("container");
 
-const resultDisplay = document.getElementById("display");
+const resultDisplay = document.getElementById("input");
 
 container.addEventListener("click", (event) => {
     if (event.target.matches('.number')) {
-        const clickedValue = event.target.getAttribute("data-seven");
-    resultDisplay.textContent = clickedValue;
+        const clickedValue = event.target.getAttribute("data-digit");
+        resultDisplay.textContent += clickedValue;
     }
 });

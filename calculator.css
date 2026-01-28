@@ -13,7 +13,7 @@
     margin: 2px;
 }
 
-div[id^="row"],#operators {
+.row {
     display:flex;
     justify-content: space-evenly;
     margin:2px;
@@ -27,7 +27,7 @@ div[id^="row"],#operators {
     align-items:center;
 }
 
-div[id^="row"] *,#operators * {
+.row * {
     display:flex;
     border:1px solid;
     height:25px;
