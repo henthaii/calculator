@@ -20,10 +20,45 @@ let num1 = "" //needs to take a number input
 let operator = [add, subtract, multiply, divide] //will call one of the functions above
 let num2 = "" //needs to take a number input
 
+//const operators = [add,subtract,multiply,divide];
+
+//Setting up methods
+
+const container = document.getElementById("container");
+
+const resultDisplay = document.getElementById("input");
+
+container.addEventListener("click", (event) => {
+    if (event.target.matches('.number')) {
+        const clickedValue = event.target.getAttribute("data-digit");
+        let num1 = clickedValue;
+        resultDisplay.textContent += clickedValue;
+        console.log(clickedValue);
+    }
+    else if (event.target.matches('.operator')) {
+        const clickedValue = event.target.getAttribute("data-sign");
+        let operator = clickedValue;
+        resultDisplay.textContent += clickedValue;
+        console.log(clickedValue);
+    }    
+    else if (event.target.matches('#clear')) {
+        resultDisplay.innerHTML= "";
+        console.log("Display cleared.");
+    }    
+    else if (operator === '' && event.target.matches('.number')) {
+        const clickedValue = event.target.getAttribute("data-digit");
+        let num2 = clickedValue;
+        resultDisplay.textContent += clickedValue;
+        console.log(clickedValue);
+    }
+});
+
+const result = document.getElementById("equal");
+
 function operate(num1,operator,num2) {
-    if (operator = plus) {
-        add(a,b);
-        return console.log(add(a,b));
+    if (operator = "+") {
+        add(num1,num2);
+        return console.log(add(num1,num2));
     }
     else if (operator = minus) {
         subtract(num1,num2);
@@ -31,7 +66,9 @@ function operate(num1,operator,num2) {
     }
 };
 
-//const operators = [add,subtract,multiply,divide];
+result.addEventListener("click",operate);
+
+//Limbo
 
 //Defining the consts
 // const one = document.getElementById('one').addEventListener("click",inputDisplay);
@@ -87,25 +124,3 @@ function operate(num1,operator,num2) {
 //create another const that can hold values from input
 //inputdisplay, does this need to consider the order of number and operator
 //reduce is not needed here
-
-const container = document.getElementById("container");
-
-const resultDisplay = document.getElementById("input");
-
-container.addEventListener("click", (event) => {
-    if (event.target.matches('.number')) {
-        const clickedValue = event.target.getAttribute("data-digit");
-        resultDisplay.textContent += clickedValue;
-        console.log(clickedValue);
-    }
-    else if (event.target.matches('.operator')) {
-        const clickedValue = event.target.getAttribute("data-sign");
-        resultDisplay.textContent += clickedValue;
-        console.log(clickedValue);
-    }    
-    else if (event.target.matches('#equal')) {
-        resultDisplay.innerHTML= "";
-        console.log("Clear bitch");
-    }    
-});
-
