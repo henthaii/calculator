@@ -16,11 +16,9 @@ const divide = (a,b) => {
 }
 
 //Variables
-let num1 = "" //needs to take a number input
-let operator = [add, subtract, multiply, divide] //will call one of the functions above
-let num2 = "" //needs to take a number input
-
-//const operators = [add,subtract,multiply,divide];
+let num1 = "";
+let operator = "";
+let num2 = "";
 
 //Setting up methods
 
@@ -55,9 +53,10 @@ container.addEventListener("click", (event) => {
 
 const result = document.getElementById("equal");
 
-function operate(num1,operator,num2) {
+const operate = (event) => {
     if (operator = "+") {
-        add(num1,num2);
+        resultDisplay.textContent = 2; //thbe logic picks up here so how do i get the add function to process
+        console.log(num1);
         return console.log(add(num1,num2));
     }
     else if (operator = minus) {
