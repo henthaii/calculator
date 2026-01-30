@@ -1,6 +1,6 @@
 //Functions
 const add = (a,b) => {
-    return a + b;
+    return parseInt(a) + parseInt(b);
 }
 
 const subtract = (a,b) => {
@@ -27,37 +27,40 @@ const container = document.getElementById("container");
 const resultDisplay = document.getElementById("input");
 
 container.addEventListener("click", (event) => {
-    if (event.target.matches('.number')) {
+    if (event.target.matches('.number') && operator === "") {
         const clickedValue = event.target.getAttribute("data-digit");
-        let num1 = clickedValue;
+        num1 = clickedValue;
         resultDisplay.textContent += clickedValue;
+        console.log(num1);
         console.log(clickedValue);
     }
     else if (event.target.matches('.operator')) {
         const clickedValue = event.target.getAttribute("data-sign");
-        let operator = clickedValue;
+        operator = clickedValue;
         resultDisplay.textContent += clickedValue;
+        console.log(operator);
         console.log(clickedValue);
     }    
+    else if (operator !== '' && event.target.matches('.number')) {
+        const clickedValue = event.target.getAttribute("data-digit");
+        num2 = clickedValue;
+        resultDisplay.textContent += clickedValue;
+        console.log(num2);
+        console.log(clickedValue);
+    }
     else if (event.target.matches('#clear')) {
         resultDisplay.innerHTML= "";
         console.log("Display cleared.");
-    }    
-    else if (operator === '' && event.target.matches('.number')) {
-        const clickedValue = event.target.getAttribute("data-digit");
-        let num2 = clickedValue;
-        resultDisplay.textContent += clickedValue;
-        console.log(clickedValue);
-    }
+    }  
 });
 
 const result = document.getElementById("equal");
 
 const operate = (event) => {
     if (operator = "+") {
-        resultDisplay.textContent = 2; //thbe logic picks up here so how do i get the add function to process
+        resultDisplay.textContent = add(num1,num2); //thbe logic picks up here so how do i get the add function to process
         console.log(num1);
-        return console.log(add(num1,num2));
+        console.log(add(num1,num2));
     }
     else if (operator = minus) {
         subtract(num1,num2);
@@ -66,60 +69,8 @@ const operate = (event) => {
 };
 
 result.addEventListener("click",operate);
-
-//Limbo
-
-//Defining the consts
-// const one = document.getElementById('one').addEventListener("click",inputDisplay);
-// console.log(one);
-
-// const two = document.getElementById('two').addEventListener("click",inputDisplay);
-// console.log(two);
-
-// const three = document.getElementById('three').addEventListener("click",inputDisplay);
-// console.log(three);
-
-// const four = document.getElementById('four').addEventListener("click",inputDisplay);
-// console.log(four);
-
-// const five = document.getElementById('five').addEventListener("click",inputDisplay);
-// console.log(five);
-
-// const six = document.getElementById('six').addEventListener("click",inputDisplay);
-// console.log(six);
-
-// const seven = document.getElementById('seven').addEventListener("click",inputDisplay);
-// console.log(seven);
-
-// const eight = document.getElementById('eight').addEventListener("click",inputDisplay);
-// console.log(eight);
-
-// const nine = document.getElementById('nine').addEventListener("click",inputDisplay);
-// console.log(nine);
-
-// const zero = document.getElementById('zero').addEventListener("click",inputDisplay);
-// console.log(zero);
-
-// const plus = document.getElementById('add').addEventListener("click",inputDisplay);
-// console.log("+");
-
-// const minus = document.getElementById('sub').addEventListener("click",inputDisplay);
-// console.log("-");
-
-// const times = document.getElementById('multiply').addEventListener("click",inputDisplay);
-// console.log("*");
-
-// const division = document.getElementById('divide').addEventListener("click",inputDisplay);
-// console.log("/");
-
-// function inputDisplay () {
-//     const display = document.getElementById('input');
-//     display.innerHTML = '';
-//     console.log("one");
-// }
-
-//if statement, depending on operator then a diff logic needs to be used.
-//loop through each operator with else
-//create another const that can hold values from input
-//inputdisplay, does this need to consider the order of number and operator
-//reduce is not needed here
+result.addEventListener("click", () => {
+    num1 = "";
+    num2 = "";
+    operator = "";
+}); //stuck here, need to get calc to reset num1 and num2 after calculating
