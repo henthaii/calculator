@@ -4,15 +4,15 @@ const add = (a,b) => {
 }
 
 const subtract = (a,b) => {
-    return a - b;
+    return parseInt(a) - parseInt(b);
 }
 
 const multiply = (a,b) => {
-    return a * b;
+    return parseInt(a) * parseInt(b);
 }
 
 const divide = (a,b) => {
-    return a / b;
+    return parseInt(a) / parseInt(b);
 }
 
 //Variables
@@ -29,7 +29,7 @@ const resultDisplay = document.getElementById("input");
 container.addEventListener("click", (event) => {
     if (event.target.matches('.number') && operator === "") {
         const clickedValue = event.target.getAttribute("data-digit");
-        num1 = clickedValue;
+        num1 += clickedValue;
         resultDisplay.textContent += clickedValue;
         console.log(num1);
         console.log(clickedValue);
@@ -43,13 +43,16 @@ container.addEventListener("click", (event) => {
     }    
     else if (operator !== '' && event.target.matches('.number')) {
         const clickedValue = event.target.getAttribute("data-digit");
-        num2 = clickedValue;
+        num2 += clickedValue;
         resultDisplay.textContent += clickedValue;
         console.log(num2);
         console.log(clickedValue);
     }
     else if (event.target.matches('#clear')) {
         resultDisplay.innerHTML= "";
+        num1 = "";
+        num2 = "";
+        operator = "";
         console.log("Display cleared.");
     }  
 });
@@ -57,20 +60,30 @@ container.addEventListener("click", (event) => {
 const result = document.getElementById("equal");
 
 const operate = (event) => {
-    if (operator = "+") {
-        resultDisplay.textContent = add(num1,num2); //thbe logic picks up here so how do i get the add function to process
-        console.log(num1);
+    if (operator === "+") {
+        resultDisplay.textContent = add(num1,num2);
         console.log(add(num1,num2));
     }
-    else if (operator = minus) {
-        subtract(num1,num2);
-        return console.log(subtract(a,b));
+    else if (operator === "-") {
+        resultDisplay.textContent = subtract(num1,num2);
+        console.log(subtract(num1,num2));
     }
+    else if (operator === "*") {
+        resultDisplay.textContent = multiply(num1,num2);
+        console.log(multiply(num1,num2));
+    }
+    else if (operator === "/") {
+        resultDisplay.textContent = divide(num1,num2); 
+        console.log(divide(num1,num2));
+    } //need to figureo ut how to get big decimal digit amoutns to round to 2 places
 };
 
 result.addEventListener("click",operate);
 result.addEventListener("click", () => {
-    num1 = "";
+    num1 = resultDisplay.textContent;
     num2 = "";
     operator = "";
-}); //stuck here, need to get calc to reset num1 and num2 after calculating
+    console.log(num1);
+    console.log(num2);
+    console.log(operator);
+}); 
