@@ -73,12 +73,14 @@ const operate = (event) => {
         console.log(multiply(num1,num2));
     }
     else if (operator === "/") {
-        resultDisplay.textContent = divide(num1,num2); 
+        resultDisplay.textContent = divide(num1,num2);
         console.log(divide(num1,num2));
-    } //need to figureo ut how to get big decimal digit amoutns to round to 2 places
+    } 
+    resultDisplay.textContext = parseFloat(resultDisplay.textContext).toFixed(3);
 };
 
 result.addEventListener("click",operate);
+
 result.addEventListener("click", () => {
     num1 = resultDisplay.textContent;
     num2 = "";
