@@ -72,17 +72,28 @@ const operate = (event) => {
         resultDisplay.textContent = multiply(num1,num2);
         console.log(multiply(num1,num2));
     }
+    else if (operator === "/" && num2 === "0") {
+        alert("Are you an idiot, you can't divide by 0 here!");
+        console.log("Baka")
+    }
     else if (operator === "/") {
         resultDisplay.textContent = divide(num1,num2);
+        resultDisplay.textContent = parseFloat(resultDisplay.textContent).toFixed(5);
         console.log(divide(num1,num2));
     } 
-    resultDisplay.textContext = parseFloat(resultDisplay.textContext).toFixed(3);
+    
 };
 
-result.addEventListener("click",operate);
+result.addEventListener("click",operate)
+
+// if (operator === "/" && num2 === "0") {
+//         alert("Are you an idiot, you can't divide by 0 here!");
+//         console.log("Baka")
+//     };
+
 
 result.addEventListener("click", () => {
-    num1 = resultDisplay.textContent;
+    num1 = ""
     num2 = "";
     operator = "";
     console.log(num1);
