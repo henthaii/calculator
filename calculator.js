@@ -19,28 +19,41 @@ const divide = (a,b) => {
 let num1 = "";
 let operator = "";
 let num2 = "";
+let resultFlag = false;
 
 //Setting up methods
-
 const container = document.getElementById("container");
 
 const resultDisplay = document.getElementById("input");
 
 container.addEventListener("click", (event) => {
-    if (event.target.matches('.number') && operator === "") {
+    if (resultFlag && event.target.matches('.number') && operator === "") {
+        resultDisplay.textContent = "";
+        resultFlag = false;
         const clickedValue = event.target.getAttribute("data-digit");
         num1 += clickedValue;
         resultDisplay.textContent += clickedValue;
         console.log(num1);
         console.log(clickedValue);
     }
-    else if (event.target.matches('.operator')) {
+    else if (event.target.matches('.number') && operator === "") {
+        const clickedValue = event.target.getAttribute("data-digit");
+        num1 += clickedValue;
+        resultDisplay.textContent += clickedValue;
+        console.log(num1);
+        console.log(clickedValue);
+    }
+    else if (event.target.matches('.operator') && operator === "") {
         const clickedValue = event.target.getAttribute("data-sign");
         operator = clickedValue;
         resultDisplay.textContent += clickedValue;
         console.log(operator);
         console.log(clickedValue);
     }    
+    else if (operator !== '' && event.target.matches('.operator')) {
+        const clickedValue = event.target.getAttribute("data-sign");
+        console.log("Operator already populated with " + operator);
+    }
     else if (operator !== '' && event.target.matches('.number')) {
         const clickedValue = event.target.getAttribute("data-digit");
         num2 += clickedValue;
@@ -86,16 +99,11 @@ const operate = (event) => {
 
 result.addEventListener("click",operate)
 
-// if (operator === "/" && num2 === "0") {
-//         alert("Are you an idiot, you can't divide by 0 here!");
-//         console.log("Baka")
-//     };
-
-
 result.addEventListener("click", () => {
     num1 = ""
     num2 = "";
     operator = "";
+    resultFlag = true;
     console.log(num1);
     console.log(num2);
     console.log(operator);
